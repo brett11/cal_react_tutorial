@@ -8,7 +8,7 @@ class AppointmentsList extends React.Component {
             <div>
                 {this.props.appointments.map(appointment => {
                     return (
-                        <Appointment appointment={appointment}/>
+                        <Appointment appointment={appointment} key={appointment.id}/>
                     );})}
             </div>
         );
