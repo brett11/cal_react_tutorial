@@ -1,9 +1,6 @@
 class AppointmentForm extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.setApptTime = this.setApptTime.bind(this);
     }
 
     handleChange(e){
@@ -35,14 +32,14 @@ class AppointmentForm extends React.Component {
         return (
             <div>
                 <h2>Make a new appointment</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(e) => this.handleSubmit(e)}>
                     <input name='title' placeholder="Appointment Title"
                            value={this.props.title}
-                           onChange={this.handleChange}
+                           onChange={(e) => this.handleChange(e)}
                     />
                     <Datetime input={false} open={true} inputProps={inputProps}
                               value={this.props.appt_time}
-                              onChange ={this.setApptTime}/>
+                              onChange ={(e) => this.setApptTime(e)}/>
                     <input type="submit" value="Make Appointment" className="submit-button"/>
                 </form>
             </div>

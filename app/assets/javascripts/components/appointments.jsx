@@ -6,8 +6,6 @@ class Appointments extends React.Component {
             title: 'Team standup meeting',
             appt_time: 'Tomorrow at 9am'
         }
-        this.handleUserInput = this.handleUserInput.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleUserInput(obj){
@@ -23,9 +21,7 @@ class Appointments extends React.Component {
             data: {
                 appointment: appointment,
             },
-            success: function(data){
-                this.addNewAppointment(data);
-            }.bind(this)
+            success: ((data) => {this.addNewAppointment(data);})
         });
     }
 
@@ -44,8 +40,8 @@ class Appointments extends React.Component {
             <div>
                 <AppointmentForm title={this.state.title}
                                  appt_time={this.state.appt_time}
-                                 onUserInput={this.handleUserInput}
-                                 onFormSubmit={this.handleFormSubmit}
+                                 onUserInput={(obj) => this.handleUserInput(obj)}
+                                 onFormSubmit={() => this.handleFormSubmit()}
                 />
                 <AppointmentsList appointments={this.state.appointments} />
             </div>
