@@ -15,7 +15,7 @@ class Appointments extends React.Component {
     }
 
     handleFormSubmit(){
-       var appointment = {title: this.state.title, appt_time: this.state.appt_time};
+       const appointment = {title: this.state.title, appt_time: this.state.appt_time};
        $.ajax({
             type: "POST",
             url: '/appointments',
@@ -32,7 +32,7 @@ class Appointments extends React.Component {
     addNewAppointment(appointmentJSON){
         // this add on approach enforces immutability
         //var appointments = React.addons.update(this.state.appointments, {$push: [appointment]});
-        var appointments = this.state.appointments.concat(appointmentJSON);
+        const appointments = this.state.appointments.concat(appointmentJSON);
         this.setState({appointments: appointments.sort((a, b) => {
             return new Date(a.appt_time) - new Date(b.appt_time);
         })});

@@ -7,7 +7,7 @@ class AppointmentForm extends React.Component {
     }
 
     handleChange(e){
-        var name = e.target.name;
+        const name = e.target.name;
         obj = {};
         obj[name] = e.target.value;
         this.props.onUserInput(obj);
@@ -20,7 +20,7 @@ class AppointmentForm extends React.Component {
 
     setApptTime(e){
         const attr_name = 'appt_time';
-        var obj = {};
+        const obj = {};
         //converts obj[appt_time] to date since only one = sign; if function serving as null check
         if (obj[attr_name] = e.toDate()) {
             this.props.onUserInput(obj);
